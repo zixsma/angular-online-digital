@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'online-digital';
+
+  getHtml(): string {
+    return "<h1>bla bla</h1>"
+  }
 }

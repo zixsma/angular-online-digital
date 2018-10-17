@@ -1,0 +1,5 @@
+<app-user-card [routerLink]="['/user-detail', userIndex]"
+               [user]="user"
+               *ngFor="let user of users; let userIndex = index"
+               class="col-sm-3">
+</app-user-card>
