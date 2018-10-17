@@ -42,5 +42,10 @@
   </div>
 
   <button type="button" class="form-control" routerLink="/user">back</button>
+  <button type="button"
+          class="form-control"
+          (click)="userForm.reset()"
+          >reset
+  </button>
   <button type="submit" class="form-control" [disabled]="userForm.invalid">Submit</button>
 </form>
