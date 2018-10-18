@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { UserService } from '../user.service';
 import { User } from '../user';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-user-list',
@@ -10,12 +11,11 @@ import { User } from '../user';
 export class UserListComponent implements OnInit {
 
   @Output('userClick') userClickEvent = new EventEmitter();
-  users: User[];
+  users: Observable<User[]>;
 
   constructor(userService: UserService) {
-    this.users = userService.users;
+    this.users = userService.getUsers();
   }
-
 
   ngOnInit() {
   }

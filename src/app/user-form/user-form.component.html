@@ -1,4 +1,6 @@
 <form [formGroup]="userFormGroup" (ngSubmit)="submit()">
+    <input type="hidden" name="id" formControlName="id">
+
     <label for="name">Name</label>
     <div class="input-group mb-3">
       <input type="text"

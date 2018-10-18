@@ -1,5 +1,5 @@
-<app-user-card [routerLink]="['/user-detail', userIndex]"
+<app-user-card [routerLink]="['/user-detail', user.id]"
                [user]="user"
-               *ngFor="let user of users; let userIndex = index"
+               *ngFor="let user of users | async"
                class="col-sm-3">
 </app-user-card>

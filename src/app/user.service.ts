@@ -1,31 +1,25 @@
 import { Injectable } from '@angular/core';
 import { User } from './user';
+import { Observable } from 'rxjs';
+import { HttpClient } from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  users: User[] = [
-    {
-      name: "Harry Potter",
-      age: 13,
-      address: "Griffin Dor",
-      tel: "0812345678"
-    },
-    {
-      name: "Gran Draff",
-      age: 70,
-      address: "Shine",
-      tel: "0987654321"
-    },
-    {
-      name: "Pooh",
-      age: 6,
-      address: "100th Aker",
-      tel: "0817263549"
-    }
-  ];
+  constructor(private http: HttpClient) { }
 
-  constructor() { }
+  getUsers(): Observable<User[]> {
+    return this.http.get("http://localhost:5400/user") as
+      Observable<User[]>;
+  }
+
+  updateUser(user: User): Observable<User> {
+    return this.http.post(
+      `http://localhost:5400/user/${user.id}`,
+      user) as
+      Observable<User>
+  }
+
 }
