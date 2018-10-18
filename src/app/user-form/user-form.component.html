@@ -1,51 +1,37 @@
-<form (ngSubmit)="submit()"
-      #userForm="ngForm">
-  <label for="basic-url">Name</label>
-  <div class="input-group mb-3">
-    <input type="text"
-           class="form-control"
-           id="basic-url"
-           [(ngModel)]="user.name"
-           required
-           minlength="3"
-           name="name"
-           #name="ngModel">
-    <p *ngIf="name.invalid">name error</p>
-  </div>
+<form [formGroup]="userFormGroup" (ngSubmit)="submit()">
+    <label for="name">Name</label>
+    <div class="input-group mb-3">
+      <input type="text"
+             class="form-control"
+             name="name"
+             formControlName="name">
+    </div>
 
-  <label for="basic-url">Address</label>
-  <div class="input-group mb-3">
-    <input type="text"
-           class="form-control"
-           id="basic-url"
-           [(ngModel)]="user.address"
-           name="address">
-  </div>
+    <label for="address">Address</label>
+    <div class="input-group mb-3">
+      <input type="text"
+             class="form-control"
+             name="address"
+             formControlName="address">
+    </div>
 
-  <label for="basic-url">Age</label>
-  <div class="input-group mb-3">
-    <input type="number"
-           class="form-control"
-           id="basic-url"
-           [(ngModel)]="user.age"
-           required
-           name="age">
-  </div>
+    <label for="age">Age</label>
+    <div class="input-group mb-3">
+      <input type="number"
+             class="form-control"
+             name="age"
+             formControlName="age">
+    </div>
 
-  <label for="basic-url">Tel</label>
-  <div class="input-group mb-3">
-    <input type="text"
-           class="form-control"
-           id="basic-url"
-           [(ngModel)]="user.tel"
-           name="tel">
-  </div>
+    <label for="tel">Tel</label>
+    <div class="input-group mb-3">
+      <input type="text"
+             class="form-control"
+             name="tel"
+             formControlName="tel">
+    </div>
+    <button type="button" class="form-control" routerLink="/user">back</button>
+    <button type="button" class="form-control">reset</button>
+    <button type="submit" class="form-control" [disabled]="userFormGroup.invalid">Submit</button>
 
-  <button type="button" class="form-control" routerLink="/user">back</button>
-  <button type="button"
-          class="form-control"
-          (click)="userForm.reset()"
-          >reset
-  </button>
-  <button type="submit" class="form-control" [disabled]="userForm.invalid">Submit</button>
 </form>
